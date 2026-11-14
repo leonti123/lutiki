@@ -5,13 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Съедобные букеты в Петербурге — Лютики цветочки: мясные, из раков, ягод и сухофруктов</title>
 <meta name="description" content="Съедобные букеты от Евгении из Горелово: мясные конверты, букеты из раков и креветок, ягод, сыров, сухофруктов и сладостей. Каталог с ценами, доставка по Петербургу, срочно от 1 часа.">
-<meta name="robots" content="noindex">
 <meta name="theme-color" content="#82130C">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta property="og:title" content="Съедобные букеты в Петербурге — Лютики цветочки">
 <meta property="og:description" content="Съедобные букеты: мясные, сырные, из раков, ягод, сухофруктов и сладостей. Каталог с ценами, доставка по СПб, срочно от 1 часа.">
-<meta property="og:image" content="https://leonti123.github.io/makety/lutiki/img/og.jpg">
-<meta property="og:url" content="https://leonti123.github.io/makety/lutiki/">
+<meta property="og:image" content="https://lutiki-bukety.ru/img/og.jpg">
+<meta property="og:url" content="https://lutiki-bukety.ru/">
 <meta property="og:type" content="website">
 <link rel="preload" href="fonts/ma-800-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/mu-var-n-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
@@ -553,7 +552,6 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
 </style>
 </head>
 <body>
-<div class="mock">Макет сайта для группы «Вкусные букеты Лютики_цветочки в СПб». После согласования подключим своё имя сайта, а заявки будут приходить вам в сообщения</div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -1311,7 +1309,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет lutiki (Лютики цветочки)", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Сайт lutiki-bukety.ru (Лютики цветочки)", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (x) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
