@@ -1324,7 +1324,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
 
   // ===== режим мастера: Евгения сама меняет букеты, цены и фото =====
   // MASTER_URL: веб-приложение Apps Script (вход по паролю, сохранение в GitHub). Пусто = демо без сохранения.
-  const MASTER_URL = "";
+  const MASTER_URL = "https://script.google.com/macros/s/AKfycbyFJVIS4-T8oLdQA3B6I18AEoHvwitt2A1lp0g4S6Ykr6IpawO084tPJwfyyR03Rzag/exec";
   const TKEY = "lu-master-v1", DKEY = "lu-draft-v1", PKEY = "lu-pub-v1";
   const LS = {get: k => { try { return JSON.parse(localStorage.getItem(k)); } catch (_) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (_) { return false; } }, del: k => { try { localStorage.removeItem(k); } catch (_) {} }};
   const FMTS = ["букет","конверт","коробка","сумочка","книга","бокс","корзина","лукошко","ящик","сердце","танк","торт","набор","кашпо"];
