@@ -126,6 +126,12 @@ h2{font-size:clamp(28px,4.2vw,44px)}
 .trust div{display:flex;align-items:center;gap:8px}
 .trust svg{width:18px;height:18px;flex:none;color:var(--gold)}
 .trust b{color:#FFF6E2}
+.h-ph{position:relative;margin:0 auto;width:min(440px,100%)}
+.h-ph img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:28px;border:5px solid #F2C014;box-shadow:0 26px 60px rgba(30,6,3,.45);transform:rotate(1.5deg)}
+.h-ph figcaption{position:absolute;left:-18px;bottom:28px;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:18px;background:#FFF6E2;color:var(--wine);box-shadow:0 12px 28px rgba(30,6,3,.35)}
+.h-ph figcaption svg{width:34px;height:34px;flex:none}
+.h-ph figcaption span{display:flex;flex-direction:column;font-size:13px;font-weight:600;line-height:1.25}
+.h-ph figcaption b{font:800 17px/1.1 var(--disp)}
 .flower-wrap{position:relative;width:min(500px,100%);margin:0 auto}
 .flower{display:block;width:100%;height:auto;aspect-ratio:1;overflow:visible}
 .flower .pt{cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s}
@@ -457,6 +463,9 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
 @media (max-width:900px){
   .sec{padding:72px 0}
   .hero .wrap{grid-template-columns:1fr;padding-top:36px;padding-bottom:56px;gap:26px}
+  .h-ph{order:-1;width:min(360px,100%)}
+  .h-ph img{aspect-ratio:1/1;object-position:50% 18%;transform:none}
+  .h-ph figcaption{left:12px;bottom:12px}
   .qz,.ql,.sea-g,.ab,.hw,.og{grid-template-columns:1fr}
   .res{position:static}
   .md{display:block}
@@ -637,10 +646,10 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       </div>
       <a class="next" id="next" href="#povody" hidden></a>
     </div>
-    <div>
-      <div class="flower-wrap" id="flower"></div>
-      <p class="fl-note">Нажмите на лепесток, чтобы открыть букеты этого вкуса</p>
-    </div>
+    <figure class="h-ph">
+      <img src="img/hero-evgeniya.jpg" srcset="img/hero-evgeniya-480.jpg 480w, img/hero-evgeniya.jpg 960w" sizes="(max-width:900px) 92vw, 440px" width="960" height="1200" alt="Евгения с мясным букетом из колбас, сыров и овощей" fetchpriority="high">
+      <figcaption><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#i-flower" fill="#F2C014"/></svg><span><b>Евгения</b>собираю каждый букет сама</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1059,7 +1068,8 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
   const onScroll = () => { const hb = hero.getBoundingClientRect().bottom, ot = ord.getBoundingClientRect(); sb.classList.toggle("on", hb < 0 && !(ot.top < innerHeight && ot.bottom > 0)); };
   addEventListener("scroll", onScroll, {passive: true}); onScroll();
 
-  // ===== hero flower =====
+  // ===== hero flower (off: hero shows her photo since 14.11) =====
+  if ($("flower")) {
   const PET = [{k:"meat",t:"Мясные",a:0},{k:"sea",t:"Раки и креветки",a:72},{k:"nuts",t:"Сухофрукты и орехи",a:144},{k:"sweet",t:"Сладкие",a:216},{k:"fruit",t:"Фрукты и ягоды",a:288}];
   const PD = "M0 0C-100-55-128-190-48-226Q0-244 48-226C128-190 100-55 0 0Z";
   const minP = k => { const v = Math.min(...VIS().filter(it => it.c.includes(k)).map(it => it.p)); return isFinite(v) ? v : 0; };
@@ -1085,6 +1095,8 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
     el.addEventListener("click", go);
     el.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") go(e); });
   });
+
+  }
 
   // ===== occasions =====
   const MON = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"];
