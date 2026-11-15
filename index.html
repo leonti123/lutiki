@@ -132,6 +132,9 @@ h2{font-size:clamp(28px,4.2vw,44px)}
 .h-ph figcaption svg{width:34px;height:34px;flex:none}
 .h-ph figcaption span{display:flex;flex-direction:column;font-size:13px;font-weight:600;line-height:1.25}
 .h-ph figcaption b{font:800 17px/1.1 var(--disp)}
+.hero .wrap.h-fl{display:block;padding-top:8px;padding-bottom:64px;text-align:center}
+.h-fl-t{color:#FFF6E2;margin:0 0 22px}
+.h-fl-t .it{color:var(--gold);font-weight:600}
 .flower-wrap{position:relative;width:min(500px,100%);margin:0 auto}
 .flower{display:block;width:100%;height:auto;aspect-ratio:1;overflow:visible}
 .flower .pt{cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s}
@@ -651,6 +654,11 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
       <figcaption><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#i-flower" fill="#F2C014"/></svg><span><b>Евгения</b>собираю каждый букет для Вас с любовью!</span></figcaption>
     </figure>
   </div>
+  <div class="wrap h-fl">
+    <h2 class="h-fl-t">Выберите <span class="it">вкус букета</span></h2>
+    <div class="flower-wrap" id="flower"></div>
+    <p class="fl-note">Нажмите на лепесток, чтобы открыть букеты этого вкуса</p>
+  </div>
 </section>
 
 <section class="sec cat" id="katalog">
@@ -1068,7 +1076,7 @@ dialog::backdrop{background:rgba(30,6,3,.72)}
   const onScroll = () => { const hb = hero.getBoundingClientRect().bottom, ot = ord.getBoundingClientRect(); sb.classList.toggle("on", hb < 0 && !(ot.top < innerHeight && ot.bottom > 0)); };
   addEventListener("scroll", onScroll, {passive: true}); onScroll();
 
-  // ===== hero flower (off: hero shows her photo since 14.11) =====
+  // ===== hero flower (under her photo since 15.11) =====
   if ($("flower")) {
   const PET = [{k:"meat",t:"Мясные",a:0},{k:"sea",t:"Раки и креветки",a:72},{k:"nuts",t:"Сухофрукты и орехи",a:144},{k:"sweet",t:"Сладкие",a:216},{k:"fruit",t:"Фрукты и ягоды",a:288}];
   const PD = "M0 0C-100-55-128-190-48-226Q0-244 48-226C128-190 100-55 0 0Z";
